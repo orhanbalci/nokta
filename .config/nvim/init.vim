@@ -84,15 +84,27 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " language client config
 let g:LanguageClient_serverCommands = {
             \'rust' : ['/usr/bin/rust-analyzer'],
-            \'python' : ['/home/orhan/.pyenv/versions/liveapp/bin/pyls'],
+            \'python' : 
+            \{
+            \       "name":"pyls",
+            \       "command":
+            \       [
+            \           "/home/orhan/.pyenv/versions/liveapp/bin/pyls",
+            \       ],
+            \       "initializationOptions":{
+            \            "log-file" : "/home/orhan/tmp/pyl.log"
+            \        }
+            \   },
             \}
 let g:LanguageClient_settingsPath = "/home/orhan/.config/nvim/ls_settings.json"
 nmap <F5> <Plug>(lcn-menu)
+xmap <F5> <Plug>(lcn-menu)
 nmap <silent>K <Plug>(lcn-hover)
 nmap <silent>gd <Plug>(lcn-definition)
 nmap <silent> <F2> <Plug>(lcn-rename)
 nmap <silent><leader>s <Plug>(lcn-symbols)
 nmap <silent><leader>h <Plug>(lcn-highlight)
+nmap <silent><leader>cl  <Plug>(lcn-code-lens-action)
 "
 " use system clipboard
 vnoremap <leader>y "+y
@@ -123,22 +135,22 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 " " Resume latest coc list.
 " nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
-nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
-nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
-nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
-nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
-nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
-nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
-nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
-nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR> 
+" nnoremap <silent> <space><space> :<C-u>CocFzfList<CR>
+" nnoremap <silent> <space>a       :<C-u>CocFzfList diagnostics<CR>
+" nnoremap <silent> <space>b       :<C-u>CocFzfList diagnostics --current-buf<CR>
+" nnoremap <silent> <space>c       :<C-u>CocFzfList commands<CR>
+" nnoremap <silent> <space>e       :<C-u>CocFzfList extensions<CR>
+" nnoremap <silent> <space>l       :<C-u>CocFzfList location<CR>
+" nnoremap <silent> <space>o       :<C-u>CocFzfList outline<CR>
+" nnoremap <silent> <space>s       :<C-u>CocFzfList symbols<CR>
+" nnoremap <silent> <space>p       :<C-u>CocFzfListResume<CR> 
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
+    disable = { "c" },  -- list of language that will be disabled
   },
 }
 
@@ -159,4 +171,9 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
-   
+
+nmap <silent> [g :cn<CR> 
+nmap <silent> ]g :cp<CR> 
+
+" deoplete config 
+let g:deoplete#enable_at_startup = 1

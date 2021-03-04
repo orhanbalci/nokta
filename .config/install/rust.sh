@@ -13,3 +13,4 @@ cargo install tealdeer
 cargo install the-way
 cargo install vivid
 cargo install websocat
+cargo install xh

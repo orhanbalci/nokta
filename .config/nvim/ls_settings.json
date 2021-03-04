@@ -11,6 +11,9 @@
         },
         "pycodestyle" : {
             "enabled" : false
+        },
+        "autopep8":{
+            "enabled" : true
         }
     }
     }

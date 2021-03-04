@@ -2,7 +2,7 @@
 "   " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.config/nvim/plugged')
 "
-
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 " Plug 'sheerun/vim-polyglot'
@@ -28,8 +28,8 @@ Plug 'autozimu/LanguageClient-neovim', {
             \}
 
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'antoinemadec/coc-fzf'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'antoinemadec/coc-fzf'
 
 Plug 'rust-lang/rust.vim'
 function! BuildComposer(info)
