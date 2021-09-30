@@ -50,6 +50,10 @@ let g:sonokai_enable_italic = 1
 let g:sonokai_disable_italic_comment = 1
 colorscheme sonokai
 
+" ayu theme
+" let ayucolor="dark"
+" colorscheme ayu
+
 " airline statusline config
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -111,6 +115,9 @@ vnoremap <leader>y "+y
 nnoremap <leader>Y "yg_
 nnoremap <leader>y "+y
 nnoremap <leader>yy "+yy
+
+nnoremap <leader>p "+gp
+nnoremap <leader>P "+gP
 
 inoremap jk <Esc>
 

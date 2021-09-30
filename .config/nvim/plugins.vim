@@ -26,6 +26,7 @@ Plug 'autozimu/LanguageClient-neovim', {
             \'branch':'next',
             \'do': 'bash install.sh',
             \}
+Plug 'ayu-theme/ayu-vim'
 
 
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
